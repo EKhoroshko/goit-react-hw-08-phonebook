@@ -58,3 +58,10 @@ button:hover {
   color: #0a67a3;
   background: #ff8e00;
 }
+
+.text {
+  margin-top: 25px;
+  width: 100%;
+  text-align: center;
+  color: #03426a;
+}
