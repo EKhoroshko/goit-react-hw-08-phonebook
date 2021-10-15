@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { removeContactAsync } from '../../redux/contacts/AsyncOperation/asyncOperation';
+import { removeContactAsync } from '../../redux/Contacts/asyncOperation';
 import css from '../PhoneItem/PhoneItem.module.css';
 
 function PhoneItem({ id, name, number }) {

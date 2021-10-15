@@ -1,4 +1,4 @@
-import NotRoute from '../../../assets/NotFound.jpg';
+import NotRoute from '../../assets/NotFound.jpg';
 import css from '../notFound/NotFound.module.css';
 
 const NotFound = () => {

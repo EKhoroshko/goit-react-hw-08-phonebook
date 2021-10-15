@@ -8,8 +8,8 @@ import {
   fetchRemoveContact,
   fetchRemoveContactResolve,
   fetchRemoveContactReject,
-} from '../slice/slice';
-import { selectUserToken } from '../../Auth/AuthSelectors';
+} from '../Contacts/contactSlice';
+import { selectUserToken } from '../Auth/AuthSelectors';
 
 export const getPhoneContact = () => async (dispatch, getState) => {
   const token = selectUserToken(getState());

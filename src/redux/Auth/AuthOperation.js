@@ -8,7 +8,11 @@ import {
   userLogOut,
   userLogOutResolve,
   userLogOutReject,
-} from '../contacts/slice/user';
+  userUpdate,
+  userUpdateResolve,
+  userUpdateReject,
+  userClearError,
+} from '../Auth/userSlice';
 import { NotificationManager } from 'react-notifications';
 import { selectUserToken } from '../Auth/AuthSelectors';
 
@@ -38,6 +42,7 @@ export const registerUser = user => async dispatch => {
     }
   } catch (error) {
     dispatch(userRegisterReject(error));
+    dispatch(userClearError());
   }
 };
 
@@ -71,6 +76,7 @@ export const loginUser = user => async dispatch => {
       });
   } catch (error) {
     dispatch(userLoginReject(error));
+    dispatch(userClearError());
   }
 };
 
@@ -93,5 +99,33 @@ export const logOutUser = () => async (dispatch, getState) => {
     dispatch(userLogOutResolve(response));
   } catch (error) {
     dispatch(userLogOutReject(error));
+    dispatch(userClearError());
+  }
+};
+
+export const updateUser = () => async dispatch => {
+  const token = localStorage.getItem('token');
+  if (token) {
+    const requestOptions = {
+      method: 'GET',
+      headers: {
+        Authorization: `${token}`,
+      },
+    };
+    dispatch(userUpdate());
+    try {
+      const user = await fetch(
+        'https://connections-api.herokuapp.com/users/current',
+        requestOptions,
+      )
+        .then(response => response.json())
+        .then(user => ({ user, token }));
+      console.log(user);
+      dispatch(userUpdateResolve(user));
+    } catch (error) {
+      dispatch(userUpdateReject(error));
+      dispatch(userClearError());
+      return NotificationManager.error('Warning');
+    }
   }
 };

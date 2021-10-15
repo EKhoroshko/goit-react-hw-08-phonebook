@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectContactItem } from '../../redux/contacts/selectors/selectors';
-import { addContactAsync } from '../../redux/contacts/AsyncOperation/asyncOperation';
+import { selectContactItem } from '../../redux/Contacts/contactSelectors';
+import { addContactAsync } from '../../redux/Contacts/asyncOperation';
 import css from '../FormSubmit/FormSubmit.module.css';
 
 function FormSubmit({ phone, title }) {

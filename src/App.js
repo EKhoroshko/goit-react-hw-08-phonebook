@@ -1,16 +1,25 @@
-import './App.css';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
-import Home from './components/route/home/Home';
-import Register from './components/route/register/Register';
-import Login from './components/route/login/Login';
-import Contact from './components/route/contact/Contact';
-import NotFound from './components/route/notFound/NotFound';
+import Home from './pages/home/Home';
+import Register from './pages/register/Register';
+import Login from './pages/login/Login';
+import Contact from './pages/contact/Contact';
+import NotFound from './pages/notFound/NotFound';
 import { NotificationContainer } from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
-import PrivateRouter from './components/route/privateRouter/PrivateRouter';
+import PrivateRouter from './pages/privateRouter/PrivateRouter';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { updateUser } from './redux/Auth/AuthOperation';
+import './App.css';
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(updateUser());
+  }, [dispatch]);
+
   return (
     <section className="container">
       <NavBar />

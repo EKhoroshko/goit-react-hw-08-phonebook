@@ -1,6 +1,6 @@
-import FormSubmit from '../../FormSubmit/FormSubmit';
-import CreateContactList from '../../PhoneList/PhoneList';
-import Filter from '../../Filter/Filter';
+import FormSubmit from '../../components/FormSubmit/FormSubmit';
+import CreateContactList from '../../components/PhoneList/PhoneList';
+import Filter from '../../components/Filter/Filter';
 
 const Contact = () => {
   return (

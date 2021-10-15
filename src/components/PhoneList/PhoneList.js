@@ -5,18 +5,22 @@ import { useEffect } from 'react';
 import {
   selectContactItem,
   selectFilter,
-} from '../../redux/contacts/selectors/selectors';
-import { getPhoneContact } from '../../redux/contacts/AsyncOperation/asyncOperation';
+} from '../../redux/Contacts/contactSelectors';
+import { getPhoneContact } from '../../redux/Contacts/asyncOperation';
+import { selectUserLogin } from '../../redux/Auth/AuthSelectors';
 import css from '../PhoneList/PhoneList.module.css';
 
 const CreateContactList = ({ title }) => {
   const dispatch = useDispatch();
+  const isLogin = useSelector(selectUserLogin);
   const listConcacts = useSelector(selectContactItem);
   const payload = useSelector(selectFilter);
 
   useEffect(() => {
-    dispatch(getPhoneContact());
-  }, [dispatch]);
+    if (isLogin) {
+      dispatch(getPhoneContact());
+    }
+  }, [dispatch, isLogin]);
 
   const filterContact = () => {
     return listConcacts.filter(({ name }) =>

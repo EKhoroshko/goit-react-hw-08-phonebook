@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { phoneBook } from '../redux/contacts/slice/slice';
-import user from '../redux/contacts/slice/user';
+import { phoneBook } from '../redux/Contacts/contactSlice';
+import user from '../redux/Auth/userSlice';
 
 export const store = configureStore({
   reducer: {
