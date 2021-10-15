@@ -120,7 +120,6 @@ export const updateUser = () => async dispatch => {
       )
         .then(response => response.json())
         .then(user => ({ user, token }));
-      console.log(user);
       dispatch(userUpdateResolve(user));
     } catch (error) {
       dispatch(userUpdateReject(error));
