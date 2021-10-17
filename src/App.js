@@ -7,7 +7,7 @@ import Contact from './pages/contact/Contact';
 import NotFound from './pages/notFound/NotFound';
 import { NotificationContainer } from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
-import PrivateRouter from './pages/privateRouter/PrivateRouter';
+import PrivateRouter from './components/privateRouter/PrivateRouter';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateUser } from './redux/Auth/AuthOperation';
