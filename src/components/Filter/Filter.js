@@ -26,8 +26,4 @@ function Filter() {
   );
 }
 
-Filter.propType = {
-  value: PropTypes.string,
-};
-
 export default Filter;
