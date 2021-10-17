@@ -92,7 +92,7 @@ export const logOutUser = () => async (dispatch, getState) => {
   dispatch(userLogOut());
   try {
     const response = await fetch(
-      'https://connections-api.herokuapp.com/users/login',
+      'https://connections-api.herokuapp.com/users/logout',
       requestOptions,
     ).then(response => response.json());
     localStorage.removeItem('token');
